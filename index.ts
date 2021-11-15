@@ -8,13 +8,13 @@ if (args.length > 2) {
     const filename = args[2];
     const key = readFileSync(keyFile).toString();
     const data = readFileSync(filename).toString();
-    if (method === 'ef') {
+    if (method === 'enc') {
         writeFileSync('encrypted.txt', AES.encrypt(data, key).toString());
-    } else if (method === 'df') {
+    } else if (method === 'dec') {
         writeFileSync('decrypted.txt', AES.decrypt(data, key).toString(enc.Utf8));
     } else {
         console.log('Invalid arguments');
     }
 } else {
-    console.log('Missing arguments. include method (ef, df, ez, dz) keyfile filename');
+    console.log('Missing arguments. include method (enc, dec) keyfile filename');
 }
